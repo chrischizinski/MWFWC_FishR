@@ -1,0 +1,186 @@
+---
+title: "Getting ready for the workshop"
+output:
+  html_document:
+    theme: paper
+    highlight: pygments
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Midwest 2017:  Introduction to Fisheries Analyses with R
+
+This is a half-day course for fisheries professionals and students interested in fisheries-specific analysis.  This introductory-to-intermediate course will familiarize participants with popular data wrangling (`tidyR` and `dplyr`) and plotting (`ggplot2`) packages in R.  We will cover age comparisons, size structure, weight-length relationships, condition, length-at-age, mortality, and individual growth through coding exercises.  Participants in the course should be familiar with some of R basics like importing data, loading libraries, and basic mathematical operations. Participants should come to the course with R and RStudio installed on a laptop. 
+
+I would like participants to take a short survey prior to coming to the workshop to help me gauge what materials you would like emphasized and to see where everyone is starting from.  If you have not already completed the survey, please follow this [link](https://docs.google.com/forms/d/e/1FAIpQLSc3kac_FjhhYY9ST1liyyim50BxHQz9Jbs5TiIpDobf8ZUQbg/viewform) to take the survey.
+
+## Getting ready for the workshop.  
+
+There are a couple things you **NEED** to do, prior to our workshop.  Please follow the 5 required steps prior to our workshop.  If you have any errors, please email me the error message or problem and I will do my best to help. 
+
+**NOTE**:  depending on the computer you are using, you may need to get your IT folks to update your software prior to the workshop because installing/updating R and RStudio will require admin priveliges.  
+
+If you are brand new to R and need an introduction to R and RStudio, there are several resources available to you.  
+
+- I have a one-hour webinar for a workshop ([A very basic introduction to R](https://www.youtube.com/watch?v=ganWW0tM4Qg)) that I gave to OFWIM last semester.  This will go over installation of R and RStudio, basic background on R, descriptions of the console and script files, and the numerous ways to find help with R.  I am going to be operating under the understanding at the workshop that you have already opened RStudio,  know the difference between the console and script files, and have run some basic operations ([Data structure webinar]()).  
+- There is a good tutorial from [Data Carpentry]()
+- There is also a good short introduction from [Coursera]()
+
+### 1. Install or updated to the most recent version of R. 
+
+Please install the most recent version (v > 3.3.0) of [R](https://cran.r-project.org/).  Please choose the appropriate link depending on your operating system. If you already have R installed and are unsure what version you are running please type `R.Version()` in the console and hit return.  
+
+```{r eval=FALSE}
+R.Version()
+```
+
+You should see something similar to this returned in your console:
+```{r echo=FALSE}
+R.Version()
+```
+
+The line that states `$version.string` will tell you what version your computer currently has installed. Mine states `r R.Version()$version.string `.
+
+### 2. Install or update to the most recent version of RStudio.
+
+Please install the most recent version (v > 1.0) of [RStudio](https://www.rstudio.com/).  If you already have RStudio installed and are unsure, you can check the version of RStudio by clicking on the "Help" menu at the top of your RStudio window, and then click "About RStudio".  
+![Rstudio Version 1](/Users/cchizinski2/Documents/MWFWC_FishR/CoursePrep/_figs/Rstudio_version_1.png)
+
+The version will be right below RStudio at the top. 
+
+![Rstudio Version 2](/Users/cchizinski2/Documents/MWFWC_FishR/CoursePrep/_figs/Rstudio_version_2.png)
+
+### 3. Create a  directory to store your R pacakges.  
+
+There a couple of benefits for doing this.  The biggest is that if you upgrade your version of R, you do not need to re-install all your R packages.  You can create this directory via File Explorer on PC and Finder on Mac.  
+
+You can also create this new directory through R.  To do this, you will use the `mkdirs()` function in the `R.utils` package (automatically installed with R). You will need to provide a path to the folder that you would like the directory installed.  **NOTE 1**: If you create your directory using File Explorer or Finder, there is no need to run the below code and you can skip to 4. **NOTE 2**: on PC you will need to use `\\` or `/` to differentiate between sub-directories and on Mac you will need to use `/`. **NOTE 3**: You will need to customize the path below based on where you want to install your packages.  I am creating a folder called `RLibrary3` in my `Documents` folder. 
+
+```{r}
+R.utils::mkdirs('/Users/cchizinski2/Documents/RLibrary3', mustWork=TRUE)
+```
+
+You should see a `TRUE`  printed in the console.  If you see `FALSE`, the directory was not created.  You may want to double check that the path is correct or double-check that you had not already created it before. 
+
+### 4. Install required R packages for the workshop.
+
+Please install the packages `tidyverse`, `lubridate`, and  `FSA`.  The first thing you are going to want to do is set your Library path to the directory you created in <span style="color:dodgerblue">step 3</span>.  
+
+```{r eval = FALSE}
+.libPaths('Documents/RLibrary3')
+```
+
+And then install the packages using the code:
+
+```{r eval = FALSE}
+install.packages(c('tidyverse','lubridate','stringr','FSA'))
+```
+
+And then load the packages using the code:
+
+```{r eval = FALSE}
+library(FSA)
+library(stringr)
+library(lubridate)
+library(tidyverse)
+```
+
+If the packages, load correctly you should see the following information in your console. **NOTE**:  Do not worry about the warnings about conflicting `tidy packages` for this workshop. 
+
+```{r echo = FALSE}
+library(FSA)
+library(lubridate)
+library(stringr)
+library(tidyverse)
+```
+
+### 5. Check that the required packages are installed correctly
+
+Please take the code in the gray boxes and copy and paste into your console and hit return.  If you would rather, you can download and R script with all the steps to help you get read [here]().  **NOTE**:  You do not need to understand all the below code, we will be going through this in the workshop, but I would like you to make sure all the packages are installed and running. 
+
+#### FSA()
+
+After loading the libraries above, run the below code in the console. 
+
+```{r eval = FALSE}
+
+yepdf <- data.frame(yepmm=c(100,150,200), species=rep("Yellow Perch",3))
+
+psdCalc(~yepmm,data=yepdf,species="Yellow perch",digits=1)
+
+```
+
+This should be produced.  
+```{r echo = FALSE}
+
+yepdf <- data.frame(yepmm=c(100,150,200), species=rep("Yellow Perch",3))
+
+psdCalc(~yepmm,data=yepdf,species="Yellow perch",digits=1)
+
+```
+
+#### stringr()
+
+After loading the libraries above, run the below code in the console. 
+
+```{r eval = FALSE}
+date_split<-str_split_fixed("2005-05-02T00:00:00-05:00", "T",2)
+date_split
+```
+
+This should be produced.  
+
+```{r echo = FALSE}
+date_split<-str_split_fixed("2005-05-02T00:00:00-05:00", "T",2)
+date_split
+```
+
+#### lubridate()
+
+After loading the libraries above, run the below code in the console. 
+
+```{r eval = FALSE}
+ymd(date_split[,1])
+
+```
+
+This should be produced.  
+
+```{r echo = FALSE}
+ymd(date_split[,1])
+```
+
+#### tidyverse()
+
+After loading the libraries above, run the below code in the console. 
+
+```{r eval = FALSE}
+mini_iris <- iris[c(1, 51, 101), ]
+
+mini_iris %>% 
+  gather(key = flower_att, value = measurement, -Species) %>% 
+  group_by(Species, flower_att) %>%
+  summarise(Mean_measure = mean(measurement)) %>% 
+  ggplot() +
+  geom_bar(aes(x = Species, y = Mean_measure, fill = flower_att), stat="identity") +
+  facet_wrap(~flower_att)
+
+```
+
+This should produce a figure that looks like this.  
+
+```{r echo = FALSE}
+mini_iris <- iris[c(1, 51, 101), ]
+
+mini_iris %>% 
+  gather(key = flower_att, value = measurement, -Species) %>% 
+  group_by(Species, flower_att) %>%
+  summarise(Mean_measure = mean(measurement)) %>% 
+  ggplot() +
+  geom_bar(aes(x = Species, y = Mean_measure, fill = flower_att), stat="identity") +
+  facet_wrap(~flower_att)
+```
