@@ -1,11 +1,7 @@
 ---
 title: "Getting ready for the workshop"
 output:
-  html_document:
-    theme: paper
-    highlight: pygments
-    toc: true
-    toc_float: true
+  github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -96,6 +92,8 @@ library(FSA)
 library(lubridate)
 library(stringr)
 library(tidyverse)
+library(readr)
+library(readxl)
 ```
 
 ### 5. Check that the required packages are installed correctly
@@ -184,3 +182,4 @@ mini_iris %>%
   geom_bar(aes(x = Species, y = Mean_measure, fill = flower_att), stat="identity") +
   facet_wrap(~flower_att)
 ```
+
