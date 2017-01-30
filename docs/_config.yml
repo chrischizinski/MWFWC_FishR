@@ -1,15 +1,15 @@
 # --- Serving options --- #
 # If you are building a GitHub project page then use these settings:
 # url is the full website URL
-url: "https://chrischizinski.github.io/OFWIM_2016/"
+url: "https://chrischizinski.github.io/MWFWC_FishR/"
 # baseurl is the website's URL without the hostname
-baseurl: "/OFWIM_2016"
+baseurl: "/MWFWC_FishR"
 
 # Name of website
-title: OFWIM_2016
+title: MWFWC_FishR
 
 # Short description of your site
-description: Repository for OFWIM 2016 R Workshop
+description: Repository for Midwest Fish and Wildlife Conference Introduction to Fisheries Analysis with R
 
 # --- Navigation bar options --- #
 # Image to show in the navigation bar - image must be a square (width = height)
@@ -39,7 +39,7 @@ footer-links-active:
   stackoverflow: false
 
 # How to display the link to the website in the footer
-url-pretty: "chrischizinski.github.io/OFWIM_2016/"
+url-pretty: "chrischizinski.github.io/MWFWC_FishR/"
 
 # --- Pagination options --- #
 paginate: 5
