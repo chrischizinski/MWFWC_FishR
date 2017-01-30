@@ -82,7 +82,7 @@ Please install the most recent version (v &gt; 1.0) of [RStudio](https://www.rst
 
 The version will be right below RStudio at the top.
 
-![Rstudio Version 2](/Users/cchizinski2/Documents/MWFWC_FishR/CoursePrep/_figs/Rstudio_version_2.png)
+![Rstudio Version 2](/MWFWC_FishR/docs/figs/Rstudio_version_2.png)
 
 ### 3. Create a directory to store your R pacakges.
 
