@@ -78,7 +78,10 @@ The line that states `$version.string` will tell you what version your computer 
 ### 2. Install or update to the most recent version of RStudio.
 
 Please install the most recent version (v &gt; 1.0) of [RStudio](https://www.rstudio.com/). If you already have RStudio installed and are unsure, you can check the version of RStudio by clicking on the "Help" menu at the top of your RStudio window, and then click "About RStudio".
-![Rstudio Version 1](/MWFWC_FishR/docs/figs/Rstudio_version_1.png)
+
+<img style="float: center;" src="/MWFWC_FishR/figs/Rstudio_version_1.png">
+
+![Rstudio Version 1](/MWFWC_FishR/figs/Rstudio_version_1.png)
 
 The version will be right below RStudio at the top.
 
