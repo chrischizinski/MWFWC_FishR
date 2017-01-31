@@ -85,7 +85,7 @@ The version will be right below RStudio at the top.
 
 ![Rstudio Version 2](/MWFWC_FishR/figs/Rstudio_version_2.png)
 
-### 3. Create a directory to store your R pacakges.
+### 3. Create a directory to store your R packages.
 
 There a couple of benefits for doing this. The biggest is that if you upgrade your version of R, you do not need to re-install all your R packages. You can create this directory via File Explorer on PC and Finder on Mac.
 
