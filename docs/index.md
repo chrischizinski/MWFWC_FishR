@@ -219,4 +219,4 @@ mini_iris %>%
 
 This should produce a figure that looks like this.
 
-![](/MWFWC_FishR/figs/2017-01-30_Gettingready_files/figure-markdown_github/unnamed-chunk-15-1.png)
+![](/MWFWC_FishR/figs/unnamed-chunk-15-1.png)
