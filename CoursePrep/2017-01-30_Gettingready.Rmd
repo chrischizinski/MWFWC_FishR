@@ -22,9 +22,10 @@ There are a couple things you **NEED** to do, prior to our workshop.  Please fol
 
 If you are brand new to R and need an introduction to R and RStudio, there are several resources available to you.  
 
-- I have a one-hour webinar for a workshop ([A very basic introduction to R](https://www.youtube.com/watch?v=ganWW0tM4Qg)) that I gave to OFWIM last semester.  This will go over installation of R and RStudio, basic background on R, descriptions of the console and script files, and the numerous ways to find help with R.  I am going to be operating under the understanding at the workshop that you have already opened RStudio,  know the difference between the console and script files, and have run some basic operations ([Data structure webinar]()).  
-- There is a good tutorial from [Data Carpentry]()
-- There is also a good short introduction from [Coursera]()
+- I have a one-hour webinar for a workshop ([A very basic introduction to R](https://www.youtube.com/watch?v=ganWW0tM4Qg)) that I gave to OFWIM last semester.  This will go over installation of R and RStudio, basic background on R, descriptions of the console and script files, and the numerous ways to find help with R.  I am going to be operating under the understanding at the workshop that you have already opened RStudio,  know the difference between the console and script files, and have run some basic operations ([Data structure webinar](https://www.youtube.com/watch?v=O9m9tyf4G_8)).  
+- There is a good tutorial from [Data Carpentry](http://www.datacarpentry.org/semester-biology/readings/R-intro/)
+- There is also a good short introduction from [Data Camp](https://www.datacamp.com/courses/free-introduction-to-r)
+- You will find lots of others by googling "intro to R course"
 
 ### 1. Install or updated to the most recent version of R. 
 
@@ -151,6 +152,22 @@ This should be produced.
 ```{r echo = FALSE}
 ymd(date_split[,1])
 ```
+
+#### readr()
+
+After loading the libraries above, run the below code in the console. 
+
+```{r eval = FALSE}
+read_csv("https://raw.githubusercontent.com/chrischizinski/MWFWC_FishR/master/CourseMaterial/data/fish_sample.csv")
+
+```
+
+This should be produced.  
+
+```{r echo = FALSE}
+read_csv("https://raw.githubusercontent.com/chrischizinski/MWFWC_FishR/master/CourseMaterial/data/fish_sample.csv")
+```
+
 
 #### tidyverse()
 

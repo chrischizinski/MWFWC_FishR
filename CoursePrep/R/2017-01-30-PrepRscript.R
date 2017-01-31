@@ -28,6 +28,9 @@ date_split
 ## Check lubridate
 ymd(date_split[,1])
 
+## Check readr
+read_csv("https://raw.githubusercontent.com/chrischizinski/MWFWC_FishR/master/CourseMaterial/data/fish_sample.csv")
+
 ## Check tidyverse
 mini_iris <- iris[c(1, 51, 101), ]
 

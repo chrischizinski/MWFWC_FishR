@@ -17,9 +17,10 @@ There are a couple things you **NEED** to do, prior to our workshop. Please foll
 
 If you are brand new to R and need an introduction to R and RStudio, there are several resources available to you.
 
--   I have a one-hour webinar for a workshop ([A very basic introduction to R](https://www.youtube.com/watch?v=ganWW0tM4Qg)) that I gave to OFWIM last semester. This will go over installation of R and RStudio, basic background on R, descriptions of the console and script files, and the numerous ways to find help with R. I am going to be operating under the understanding at the workshop that you have already opened RStudio, know the difference between the console and script files, and have run some basic operations ([Data structure webinar]()).
--   There is a good tutorial from [Data Carpentry]()
--   There is also a good short introduction from [Coursera]()
+-   I have a one-hour webinar for a workshop ([A very basic introduction to R](https://www.youtube.com/watch?v=ganWW0tM4Qg)) that I gave to OFWIM last semester. This will go over installation of R and RStudio, basic background on R, descriptions of the console and script files, and the numerous ways to find help with R. I am going to be operating under the understanding at the workshop that you have already opened RStudio, know the difference between the console and script files, and have run some basic operations ([Data structure webinar](https://www.youtube.com/watch?v=O9m9tyf4G_8)).
+-   There is a good tutorial from [Data Carpentry](http://www.datacarpentry.org/semester-biology/readings/R-intro/)
+-   There is also a good short introduction from [Data Camp](https://www.datacamp.com/courses/free-introduction-to-r)
+-   You will find lots of others by googling "intro to R course"
 
 ### 1. Install or updated to the most recent version of R.
 
@@ -78,8 +79,6 @@ The line that states `$version.string` will tell you what version your computer 
 ### 2. Install or update to the most recent version of RStudio.
 
 Please install the most recent version (v &gt; 1.0) of [RStudio](https://www.rstudio.com/). If you already have RStudio installed and are unsure, you can check the version of RStudio by clicking on the "Help" menu at the top of your RStudio window, and then click "About RStudio".
-
-
 ![Rstudio Version 1](/MWFWC_FishR/figs/Rstudio_version_1.png)
 
 The version will be right below RStudio at the top.
@@ -102,7 +101,7 @@ You should see a `TRUE` printed in the console. If you see `FALSE`, the director
 
 ### 4. Install required R packages for the workshop.
 
-Please install the packages `tidyverse`, `lubridate`, and `FSA`. The first thing you are going to want to do is set your Library path to the directory you created in <span style="color:dodgerblue">step 3</span>.
+Please install the packages `tidyverse`, `readr`, `lubridate`, and `FSA`. The first thing you are going to want to do is set your Library path to the directory you created in <span style="color:dodgerblue">step 3</span>.
 
 ``` r
 .libPaths('Documents/RLibrary3')
@@ -153,7 +152,7 @@ If the packages, load correctly you should see the following information in your
 
 ### 5. Check that the required packages are installed correctly
 
-Please take the code in the gray boxes and copy and paste into your console and hit return. If you would rather, you can download and R script with all the steps to help you get read [here](). **NOTE**: You do not need to understand all the below code, we will be going through this in the workshop, but I would like you to make sure all the packages are installed and running.
+Please take the code in the gray boxes and copy and paste into your console and hit return. If you would rather, you can download and R script with all the steps to help you get read [here](https://raw.githubusercontent.com/chrischizinski/MWFWC_FishR/master/CoursePrep/R/2017-01-30-PrepRscript.R). **NOTE**: You do not need to understand all the below code, we will be going through this in the workshop, but I would like you to make sure all the packages are installed and running.
 
 #### FSA()
 
@@ -201,6 +200,39 @@ This should be produced.
 
     ## [1] "2005-05-02"
 
+#### readr()
+
+After loading the libraries above, run the below code in the console.
+
+``` r
+read_csv("https://raw.githubusercontent.com/chrischizinski/MWFWC_FishR/master/CourseMaterial/data/fish_sample.csv")
+```
+
+This should be produced.
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   surveydate = col_datetime(format = ""),
+    ##   Station = col_integer(),
+    ##   SpeciesCode = col_integer(),
+    ##   LengthGroup = col_integer(),
+    ##   FishCount = col_integer()
+    ## )
+
+    ## # A tibble: 10 × 5
+    ##             surveydate Station SpeciesCode LengthGroup FishCount
+    ##                 <dttm>   <int>       <int>       <int>     <int>
+    ## 1  2015-05-12 05:00:00       3         770         240         7
+    ## 2  2015-05-12 05:00:00       2         770         260         4
+    ## 3  2015-05-12 05:00:00       3         770         270         8
+    ## 4  2015-05-12 05:00:00       1         770         240         1
+    ## 5  2015-05-12 05:00:00       3         770         300         3
+    ## 6  2015-05-12 05:00:00       1         770         380         1
+    ## 7  2015-05-12 05:00:00       3         770         210         4
+    ## 8  2015-05-12 05:00:00       2         770         280         5
+    ## 9  2015-05-12 05:00:00       1         770         200         3
+    ## 10 2015-05-12 05:00:00       2         770         460         1
+
 #### tidyverse()
 
 After loading the libraries above, run the below code in the console.
@@ -219,4 +251,4 @@ mini_iris %>%
 
 This should produce a figure that looks like this.
 
-![](/MWFWC_FishR/figs/unnamed-chunk-15-1.png)
+![](/MWFWC_FishR/figs/unnamed-chunk-17-1.png)
