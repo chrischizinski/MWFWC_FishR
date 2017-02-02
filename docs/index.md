@@ -238,6 +238,8 @@ This should be produced.
 After loading the libraries above, run the below code in the console.
 
 ``` r
+data(iris)
+
 mini_iris <- iris[c(1, 51, 101), ]
 
 mini_iris %>% 
